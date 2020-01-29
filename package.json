@@ -1,0 +1,29 @@
+{
+  "name": "wachallenge",
+  "version": "1.0.0",
+  "description": "Web Scrapper",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "babel-node src/index.js"
+  },
+  "keywords": [
+    "web",
+    "scrapper",
+    "nodejs",
+    "warren"
+  ],
+  "author": "Ju Dantas",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^25.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.8.10",
+    "puppeteer": "^2.1.0"
+  }
+}
