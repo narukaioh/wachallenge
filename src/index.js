@@ -1,9 +1,8 @@
-import express from 'express'
+require('dotenv').config()
 
-const server = express()
+import server from './server'
 
-server.post('/', (req, res) => {
-    res.send("Hello World")
+server.listen(process.env.PORT, () => {
+  const { HOST, PORT } = process.env
+  console.log(`Listening in http://${HOST}:${PORT}`)
 })
-
-server.listen(8080)
