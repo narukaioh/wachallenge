@@ -4,11 +4,12 @@
   "description": "Web Scrapper",
   "main": "index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --verbose --runInBand --detectOpenHandles",
     "start": "nodemon --exec babel-node src/index.js"
   },
   "jest": {
-    "testEnvironment": "node"
+    "testTimeout": 30000,
+    "preset": "jest-puppeteer"
   },
   "keywords": [
     "web",
@@ -25,11 +26,13 @@
     "@babel/preset-env": "^7.8.4",
     "babel-jest": "^25.1.0",
     "jest": "^25.1.0",
+    "jest-puppeteer": "^4.4.0",
     "nodemon": "^2.0.2",
     "sinon": "^8.1.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
+    "cheerio": "^1.0.0-rc.3",
     "core-js": "^3.6.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
