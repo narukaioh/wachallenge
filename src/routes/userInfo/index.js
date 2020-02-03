@@ -1,5 +1,6 @@
 
 import UserInfoService from '../../services/mongo'
+import scraper from '../../services/puppeteer'
 
 export const getUserInfo = async (req, res, next) => {
   try {
@@ -11,11 +12,10 @@ export const getUserInfo = async (req, res, next) => {
 }
 
 export const createUserInfo = async (req, res, next) => {
-  const { name } = req.query
-  try {
-    const userInfo = await UserInfoService.createUserInfo({name})
-    res.send(userInfo)
-  } catch (e) {
-    next(e)
-  }
+  const { cpf, account, password } = req.query
+  scraper.santanderScraper({ cpf, account, password })
+    .then( async (data) => {
+      const userInfo = await UserInfoService.createUserInfo(data)
+      res.json(userInfo);
+    }).catch(err => res.status(500).json({ message: err }))
 }
