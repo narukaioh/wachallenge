@@ -5,7 +5,6 @@ const listUserInfo = UserInfo => () => {
 const createUserInfo = UserInfo => attr => {
   if (!attr) throw new Error(`Attr: ${attr}`)
   const userInfo = new UserInfo(attr.userInfo)
-  console.log(userInfo)
   return userInfo.save()
 }
 

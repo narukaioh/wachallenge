@@ -1,6 +1,33 @@
 import UserInfoService from '../service'
 import sinon from 'sinon'
 
+const info = {
+  creditCard: {
+    open: {
+      expenseSummary: {
+        availableLimit: 'R$ 0,000,00',
+        previousWithdrawal: 'R$ 0.000,00',
+        totalPayments: 'R$ 0,00',
+        totalCredit: 'R$ 0,00',
+        debits: 'R$ 00,00',
+        expenses: 'US$ 0,00',
+        totalConverted: 'R$ 0,00',
+        quoteDollar: '0,00'
+      },
+      creditLimit: {
+        totalLimit: 'R$ 0.000,00',
+        withdrawalLimit: 'R$ 0,00',
+        availableLimit: 'R$ 00,00'
+      },
+      invoiceSummary: {
+        dueDate: '00/00/0000',
+        bestShoppingDate: '00/00/0000',
+        parcialBallance: 'R$ 0.000,00'
+      }
+    }
+  }
+}
+
 describe('UserInfoService test', () => {
   it('has a module', () => {
     expect(UserInfoService).toBeDefined()
@@ -20,20 +47,16 @@ describe('UserInfoService test', () => {
   describe('createUserInfo test', () => {
     it('create a user informations', () => {
       const save =  sinon.spy()
-      let name
       const mock =  function(data) {
-        name = data.name
         return {
           ...data,
           save
         }
       }
       const userService = UserInfoService(mock)
-      userService.createUserInfo({ name: "teste" })
-      const expected = true
+      userService.createUserInfo(info)
       const actual = save.calledOnce
-      expect(actual).toBe(expected)
-      expect(name).toBe("teste")
+      expect(actual).toBe(true)
     })
 
   })
