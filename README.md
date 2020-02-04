@@ -9,7 +9,7 @@ A aplicação é uma REST API onde você deve passar o CPF, Account (ultimos 4 n
 Abra uma nova pasta de projeto, clone o repositório para rodar os seguintes comandos no terminal:
 
 ```
-git clone https://github.com/narukaioh/wachallenge-webscraper.git
+git clone https://github.com/narukaioh/wachallenge.git
 ```
 Para instalar as dependencias rode o seguinte comando:
 ```
@@ -35,7 +35,9 @@ MongoDB - versão 4.2.0
 A aplicação funciona rodando em um servidor local e permite que usuários possam chamar o endpoint, pode ser utilizado o Postman para isso.
 
 POST Envie as credenciais para logar em um conta Santander:
+
 < domain >/user-info/?cpf=XXX&account=XXXX&password=XXXX
 
 GET Para obter as informações de todos os usuários salvos no banco de dados
+
 < domain >/user-info/
